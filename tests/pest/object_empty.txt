@@ -1,0 +1,11 @@
+Empty object test
+
+========
+
+{}
+
+========
+
+(ESon
+  (Object: "{}")
+)

@@ -1,0 +1,30 @@
+{
+  str: "hello",
+  "str_escaped": "hello\"world'test",
+  "str_multiline": "line1\nline2\nline3",
+  isDefined: undefined,
+  'num_42': 42,
+  'num_negative': -42,
+  'num_float': 3.14159,
+  'num_negative_float': -3.14159,
+  'bool_true': true,
+  'bool_false': false,
+  'null_val': null,
+  /*
+    All cool guys use buffer like this:
+    [1, 2, 3] // Yes, it is a comment inside another one!
+  */
+  'nan_val': NaN,
+  'infinity_val': Infinity,
+  'infinity_negative': -Infinity,
+  'bigint_pos': 123456789n,
+  'bigint_neg': -987654321n,
+  arr: [1, "two", true, -5.5, null, 999n],
+  nested: {
+    inner: "value",
+    "nested_num": -99.99,
+    "empty_arr": [],
+    "empty_obj": {},
+    "deep_array": [[[0]]]
+  }
+}

@@ -1,0 +1,258 @@
+Flat object test
+
+========
+
+{
+  str: "hello",
+  "str_escaped": "hello\"world'test",
+  "str_multiline": "line1\nline2\nline3",
+  isDefined: undefined,
+  'num_42': 42,
+  'num_negative': -42,
+  'num_float': 3.14159,
+  'num_negative_float': -3.14159,
+  'bool_true': true,
+  'bool_false': false,
+  'null_val': null,
+  /*
+    All cool guys use buffer like this:
+    [1, 2, 3] // Yes, it is a comment inside another one!
+  */
+  'nan_val': NaN,
+  'infinity_val': Infinity,
+  'infinity_negative': -Infinity,
+  'bigint_pos': 123456789n,
+  'bigint_neg': -987654321n,
+  arr: [1, "two", true, -5.5, null, 999n],
+  nested: {
+    inner: "value",
+    "nested_num": -99.99,
+    "empty_arr": [],
+    "empty_obj": {},
+    "deep_array": [[[0]]]
+  }
+}
+
+========
+
+(ESon
+  (Object
+    (pair
+      (key
+        (key_simple: "str")
+      )
+      (value
+        (String: "hello")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "str_escaped")
+      )
+      (value
+        (String: "hello\\\"world\'test")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "str_multiline")
+      )
+      (value
+        (String: "line1\\nline2\\nline3")
+      )
+    )
+    (pair
+      (key
+        (key_simple: "isDefined")
+      )
+      (value
+        (undefined: "undefined")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "num_42")
+      )
+      (value
+        (Number: "42")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "num_negative")
+      )
+      (value
+        (Number: "-42")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "num_float")
+      )
+      (value
+        (Number: "3.14159")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "num_negative_float")
+      )
+      (value
+        (Number: "-3.14159")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "bool_true")
+      )
+      (value
+        (Boolean: "true")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "bool_false")
+      )
+      (value
+        (Boolean: "false")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "null_val")
+      )
+      (value
+        (null: "null")
+      )
+    )
+    (COMMENT: "/*\n    All cool guys use buffer like this:\n    [1, 2, 3] // Yes, it is a comment inside another one!\n  */")
+    (pair
+      (key
+        (key_complex: "nan_val")
+      )
+      (value
+        (NaN: "NaN")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "infinity_val")
+      )
+      (value
+        (Infinity: "Infinity")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "infinity_negative")
+      )
+      (value
+        (Infinity: "-Infinity")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "bigint_pos")
+      )
+      (value
+        (BigInt: "123456789n")
+      )
+    )
+    (pair
+      (key
+        (key_complex: "bigint_neg")
+      )
+      (value
+        (BigInt: "-987654321n")
+      )
+    )
+    (pair
+      (key
+        (key_simple: "arr")
+      )
+      (value
+        (Array
+          (value
+            (Number: "1")
+          )
+          (value
+            (String: "two")
+          )
+          (value
+            (Boolean: "true")
+          )
+          (value
+            (Number: "-5.5")
+          )
+          (value
+            (null: "null")
+          )
+          (value
+            (BigInt: "999n")
+          )
+        )
+      )
+    )
+    (pair
+      (key
+        (key_simple: "nested")
+      )
+      (value
+        (Object
+          (pair
+            (key
+              (key_simple: "inner")
+            )
+            (value
+              (String: "value")
+            )
+          )
+          (pair
+            (key
+              (key_complex: "nested_num")
+            )
+            (value
+              (Number: "-99.99")
+            )
+          )
+          (pair
+            (key
+              (key_complex: "empty_arr")
+            )
+            (value
+              (Array: "[]")
+            )
+          )
+          (pair
+            (key
+              (key_complex: "empty_obj")
+            )
+            (value
+              (Object: "{}")
+            )
+          )
+          (pair
+            (key
+              (key_complex: "deep_array")
+            )
+            (value
+              (Array
+                (value
+                  (Array
+                    (value
+                      (Array
+                        (value
+                          (Number: "0")
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)

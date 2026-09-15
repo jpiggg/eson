@@ -1,6 +1,6 @@
 [package]
-name = "braser"
-version = "0.1.0"
+name = "eson"
+version = "0.1.2"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -9,11 +9,18 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-wasm-bindgen = "0.2.84"
+wasm-bindgen = "0.2.114"
 num = "0.4"
 lazy_static = "1.4.0"
 js-sys = "0.3.52"
 regex = "1.9.3"
+pest = "2.8.3"
+pest_derive = "2.8.3"
+pest-ast = "0.3.6"
+from-pest = "0.3.4"
+
 [dev-dependencies]
 pretty_assertions = "1"
-wasm-bindgen-test = "0.3.0"
+wasm-bindgen-test = "0.3.64"
+pest-test = "0.1.6"
+pest-test-gen = "0.1.7"

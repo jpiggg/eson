@@ -1,0 +1,49 @@
+WHITESPACE = _{ " " | "\t" | NEWLINE | "\r" }
+_QUOTE = _{ "\"" | "'" }
+_left_brace = _{ "{" }
+_right_brace = _{ "}" }
+_left_bracket = _{ "[" }
+_right_bracket = _{ "]" }
+_left_paren = _{ "(" }
+_right_paren = _{ ")" }
+_colon = _{ ":" }
+_semicolon = _{ ";" }
+_dot = _{ "." }
+_comma = _{ "," }
+_true = _{ "true" }
+_false = _{ "false" }
+_sign = _{ "+" | "-" }
+_eq = _{ "="}
+NaN = { "NaN" }
+undefined = { "undefined" }
+null = { "null" }
+Infinity = @{_sign? ~ "Infinity"}
+BigInt = @{_sign? ~ ASCII_DIGIT+ ~ "n"}
+Boolean = @{_true | _false}
+Number = @{_sign? ~ ASCII_DIGIT+ ~ (_dot ~ ASCII_DIGIT+)?}
+_quote_start = _{PUSH(_QUOTE) }
+_quote_end = _{POP}
+StringValue = _{ _quote_start ~ String ~ _quote_end }
+String = @{ char* }
+char = {
+    !("\""| "\'"  | "\\" ) ~ ANY
+    | "\\" ~ ("\"" | "\'" | "\\" | "/" | "b" | "f" | "n" | "r" | "t")
+    | "\\" ~ ("u" ~ ASCII_HEX_DIGIT{4})
+    | !PEEK ~ ANY
+}
+one_line_comment = {"//" ~ (!NEWLINE ~ ANY)*}
+SOC = {"/*"}
+EOC = {"*/"}
+multi_line_comment = {SOC ~ (!EOC ~ ANY)* ~ EOC}
+COMMENT = {one_line_comment | multi_line_comment}
+_key_sign = _{("_" | "$" | "@" | "$")+}
+key_letter = _{ASCII_ALPHA+}
+key_digit = _{ASCII_DIGIT+}
+key_complex = {_quote_start ~ (key_letter | key_digit | _key_sign)* ~ _quote_end}
+key_simple = {key_letter}
+key= {key_simple | key_complex}
+value = { Object | Array | StringValue |  BigInt  | Number | Boolean | null | undefined | NaN | Infinity}
+pair = {key ~ _colon ~ value ~ _comma? ~ COMMENT?}
+Array = {_left_bracket ~ (value ~ _comma?)* ~ _right_bracket}
+Object = {_left_brace ~ pair* ~ _right_brace}
+ESon = {SOI ~ Object ~ EOI}
